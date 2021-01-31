@@ -1,5 +1,6 @@
 target
 tmp
+.asciidoctor
 .classpath
 .factorypath
 .project
