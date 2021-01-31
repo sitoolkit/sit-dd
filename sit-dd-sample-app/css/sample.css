@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+}
+
+nav {
+  padding: 1rem 3rem;
+  background-color: lightgray;
+}
+
+nav .logo {
+  font-size: x-large;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+main {
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+}
+
+table.form {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+table.form th {
+  color: black;
+  font-weight: normal;
+  text-align: right;
+}
+
+table.form th,
+table.form td {
+  padding: 0.5rem;
+}
+
+table.form tfoot td {
+  border: none;
+  text-align: center;
+}
+
+.width-7 {
+  width: 7rem;
+}
+
+.width-10 {
+  width: 10rem;
+}
+/*# sourceMappingURL=sample.css.map */

@@ -1,0 +1,7 @@
+{
+  "asciidoc.asciidoctor_command": "asciidoctor  -a outdir=tmp -a imagesdir=tmp -a imagesoutdir=tmp -a icons=font -r asciidoctor-diagram -o-",
+  "asciidoc.use_asciidoctor_js": false,
+  "asciidoc.preview.refreshInterval": 500,
+  "asciidoc.preview.useEditorStyle": false,
+  "editor.formatOnSave": true
+}

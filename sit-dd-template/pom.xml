@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- The Basics -->
+  <artifactId>sit-dd-template</artifactId>
+
+  <parent>
+    <groupId>io.sitoolkit.dd</groupId>
+    <artifactId>sit-design-docs</artifactId>
+    <version>0.8-SNAPSHOT</version>
+  </parent>
+
+  <!-- Build Settings -->
+  <build>
+    <defaultGoal>asciidoctor:process-asciidoc</defaultGoal>
+
+    <plugins>
+      <plugin>
+        <groupId>org.asciidoctor</groupId>
+        <artifactId>asciidoctor-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+    
+  </build>
+
+
+</project>

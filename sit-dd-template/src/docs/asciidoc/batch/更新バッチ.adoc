@@ -1,0 +1,30 @@
+= 更新バッチ
+
+
+[plantuml]
+----
+autonumber
+
+participant ジョブスケジューラー as js
+participant バッチ as batch
+database テーブル1 as tab_1
+database テーブル2 as tab_2
+database テーブル3 as tab_3
+
+js -> batch: 更新バッチを起動
+
+batch -> tab_1: 取得
+batch <-- tab_1: テーブル1レコードのリスト
+
+loop 各テーブル1レコードに対する処理
+  batch -> tab_2: 取得
+  batch <-- tab_2: テーブル2レコード
+
+  batch -> batch
+
+end
+
+batch -> tab_3: 更新
+js <-- batch: 処理結果
+
+----

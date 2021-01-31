@@ -1,0 +1,36 @@
+= Design Document
+
+Design Document (以下 sit-dd)は、エンタープライズシステムの設計書をAsciiDocで作成するためのテンプレート、サンプルを提供するプロジェクトです。
+
+
+== 必要なソフトウェア
+
++ Chocolatey (Windows Only)
++ Homebrew (macOS Only)
++ Java
++ VSCode
+
+
+=== インストール手順 (Windows)
+
+Windows PowerShellを管理者として起動し、以下のコマンドを実行します。
+
+[source, powershell]
+----
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = 
+[System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+----
+
+次に、コマンドプロンプトを管理者として起動し、以下のコマンドを実行します。
+
+----
+choco install -y vscode
+choco install -y ruby
+
+
+gem install asciidoctor
+gem install asciidoctor-diagram
+
+code --install-extension joaompinto.asciidoctor-vscode
+----
+

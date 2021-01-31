@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- The Basics -->
+  <groupId>io.sitoolkit.dd</groupId>
+  <artifactId>sit-design-docs</artifactId>
+  <version>0.8-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>sit-dd-docs</module>
+    <module>sit-dd-template</module>
+  </modules>
+
+  <!-- Build Settings -->
+  <build>
+    <defaultGoal>process-resources</defaultGoal>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.asciidoctor</groupId>
+          <artifactId>asciidoctor-maven-plugin</artifactId>
+          <version>2.1.0</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.asciidoctor</groupId>
+              <artifactId>asciidoctorj-diagram</artifactId>
+              <version>2.1.0</version>
+            </dependency>
+          </dependencies>
+
+          <configuration>
+            <backend>html5</backend>
+            <doctype>book</doctype>
+            <requires>
+  ​              <require>asciidoctor-diagram</require>
+            </requires>
+            <preserveDirectories>true</preserveDirectories>
+            <attributes>
+              <toc>left</toc>
+              <source-highlighter>highlight.js</source-highlighter>
+              <imgdir>./</imgdir>
+              <csvdir>./csv/</csvdir>
+            </attributes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

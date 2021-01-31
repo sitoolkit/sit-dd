@@ -1,0 +1,112 @@
+= 画面設計書
+:table-caption!:
+:imgdir: ../
+:csvdir: ../csv/
+
+
+== レイアウト
+
+image:{imgdir}登録画面.png[]
+
+
+
+== 項目一覧
+
+[options="header, autowidth"]
+,====
+include::{csvdir}page/登録画面_項目.csv[]
+,====
+
+
+== イベント一覧
+
+[%header, cols="4*"]
+|===
+|No
+|項目名
+|イベント
+|挙動
+
+|{counter:event}
+|「入力項目1」
+|フォーカスアウト
+|入力された全角数字を半角数字に変換する
+
+|{counter:event}
+|「登録」ボタン
+|クリック
+|「登録処理」を実行
+
+|===
+
+
+
+
+
+== 処理詳細
+
+=== 登録処理
+
+[plantuml]
+----
+
+actor "ユーザー" as user
+participant ”アプリケーション” as app
+database "テーブル1" as tab_1
+participant ”外部API” as api
+
+user -> app: 「登録」ボタンをクリック
+app -> app: 単項目チェック、相関チェック
+
+alt チェックNG
+  user <-- app: 登録画面に遷移
+end
+
+app -> tab_1: テーブル1を取得
+app <-- tab_1: テーブル1レコード
+
+alt 「テーブル1レコード」の「カラム1」が0の場合
+  user <-- app: 登録画面に遷移
+end
+
+app -> api: 外部API呼び出し
+app <-- api: API結果
+
+app -> tab_1: テーブル1を更新
+
+user <-- app: 登録完了画面に遷移
+----
+
+.相関チェック
+[%header, cols="2*"]
+|===
+|条件
+|エラーメッセージ
+
+|「入力項目2」が空白、かつ「入力項目3」が無選択の場合
+|入力項目2と入力項目3はいずれかを必ず選択してください。
+|===
+
+
+.テーブル1を取得　抽出条件
+[source, sql]
+----
+更新画面.入力項目1 = テーブル1.カラム1
+  AND
+更新画面.入力項目2 > テーブル1.カラム2
+----
+
+
+.外部API呼び出し　マッピング定義
+[%header, cols="1,1"]
+|===
+|From
+|To
+
+|更新画面.入力項目3
+|外部API.prop1
+
+|テーブル1.カラム3
+|外部API.prop2
+|===
+
